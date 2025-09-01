@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const JournalScreen = ({}) => {
+const JournalScreen = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,7 +35,9 @@ const JournalScreen = ({}) => {
       } else {
         await JournalStorage.createJournal({ content: input, zodiacSign: zodiac });
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error in saveToHistory", error);
+    }
 
     setIsLoading(false);
     router.back();
@@ -46,7 +48,9 @@ const JournalScreen = ({}) => {
     try {
       const journal = await JournalStorage.getJournalById(journalId);
       setInput(journal?.content ?? "");
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error in fetchJournalById", error);
+    }
     setIsLoading(false);
   };
 
@@ -57,7 +61,7 @@ const JournalScreen = ({}) => {
   }, []);
 
   return (
-    <View style={[styles.container, { paddingTop: inset.top + 12 }]}>
+    <View style={[styles.container, { paddingTop: inset.top + 8 }]}>
       <Image source={GradientBg1} contentFit='cover' style={StyleSheet.absoluteFillObject} />
       <View style={[styles.content, { marginBottom: inset.bottom }]}>
         <View style={styles.headerContainer}>
@@ -122,6 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: "center",
     color: Colors.white,
+    includeFontPadding: false,
   },
   textInputContainer: {
     marginTop: 24,
@@ -140,6 +145,7 @@ const styles = StyleSheet.create({
     padding: 16,
     flexGrow: 1,
     verticalAlign: "top",
+    includeFontPadding: false,
   },
   buttonContainer: {
     flex: 1,
@@ -165,5 +171,6 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     color: Colors.white,
     textTransform: "capitalize",
+    includeFontPadding: false,
   },
 });

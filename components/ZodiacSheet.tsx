@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Bold,
     fontSize: 20,
     color: Colors.white,
+    includeFontPadding: false,
   },
   rotatedLine: {
     transform: [{ rotate: "180deg" }],
@@ -80,5 +81,6 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 12,
     color: Colors.whiteTransparent,
+    includeFontPadding: false,
   },
 });

@@ -28,7 +28,9 @@ const HistoryScreen = () => {
       setIsLoading(true);
       const data = await JournalStorage.getAllJournalsPublic();
       setHistories(data);
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error in fetchHistoryJournals", error);
+    }
     setIsLoading(false);
   };
 
@@ -38,10 +40,33 @@ const HistoryScreen = () => {
     }, [])
   );
 
+  const renderItem = useCallback(({ item }: { item: Journal }) => {
+    return (
+      <HapticTab
+        onPress={() => {
+          router.push({
+            pathname: "/journalscreen",
+            params: {
+              journalId: item.id,
+            },
+          });
+        }}
+      >
+        <LinearGradient colors={[Colors.gradientStart, Colors.gradientEnd]} style={styles.gradientContainer}>
+          <View style={styles.itemHeader}>
+            <Text style={styles.dateText}>{dayjs(item.createdAt).format("DD MMM, YYYY")}</Text>
+            <BackSvg style={styles.arrowIcon} width={28} height={28} />
+          </View>
+          <Text style={styles.contentText}>{item.content}</Text>
+        </LinearGradient>
+      </HapticTab>
+    );
+  }, []);
+
   return (
-    <View style={[styles.container, { paddingTop: inset.top + 12, paddingBottom: inset.bottom }]}>
+    <View style={[styles.container, { paddingTop: inset.top + 8, paddingBottom: inset.bottom }]}>
       <Image source={GradientBg1} contentFit='cover' style={StyleSheet.absoluteFillObject} />
-      <View style={styles.header}>
+      <View>
         <View style={styles.headerContainer}>
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>{t("history.title")}</Text>
@@ -56,28 +81,7 @@ const HistoryScreen = () => {
         data={histories}
         style={styles.flatList}
         contentContainerStyle={styles.flatlistContainer}
-        renderItem={({ item }) => {
-          return (
-            <HapticTab
-              onPress={() => {
-                router.push({
-                  pathname: "/journalscreen",
-                  params: {
-                    journalId: item.id,
-                  },
-                });
-              }}
-            >
-              <LinearGradient colors={[Colors.gradientStart, Colors.gradientEnd]} style={styles.gradientContainer}>
-                <View style={styles.itemHeader}>
-                  <Text style={styles.dateText}>{dayjs(item.createdAt).format("DD MMM, YYYY")}</Text>
-                  <BackSvg style={styles.arrowIcon} width={28} height={28} />
-                </View>
-                <Text style={styles.contentText}>{item.content}</Text>
-              </LinearGradient>
-            </HapticTab>
-          );
-        }}
+        renderItem={renderItem}
       />
       {isLoading && <Loader />}
     </View>
@@ -91,7 +95,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
   },
-  header: {},
   flatlistContainer: {
     gap: 24,
   },
@@ -110,6 +113,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: "center",
     color: Colors.white,
+    includeFontPadding: false,
   },
   flatList: {
     marginTop: 24,
@@ -130,6 +134,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 20,
     color: Colors.whiteTransparent,
+    includeFontPadding: false,
   },
   arrowIcon: {
     transform: [{ rotate: "180deg" }],
@@ -138,5 +143,6 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 14,
     color: Colors.whiteTransparent,
+    includeFontPadding: false,
   },
 });

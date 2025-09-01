@@ -45,7 +45,9 @@ const HomeScreen = () => {
     try {
       const data = await getTodayHoroscope(currentZodiac.name);
       setHoroscope(data.data.horoscope_data);
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error in fetchZodiac", error);
+    }
     setIsLoading(false);
   };
 
@@ -65,23 +67,21 @@ const HomeScreen = () => {
       <View style={styles.headerContainer}>
         <Text style={styles.greetingText}>{t("home.greeting")}</Text>
 
-        <HapticTab style={styles.icon} onPress={() => setShowLanguageSelector(true)}>
+        <HapticTab onPress={() => setShowLanguageSelector(true)}>
           <LanguageSvg width={24} height={24} />
         </HapticTab>
 
-        <View style={styles.headerButtons}>
-          <Text
-            onPress={() =>
-              bottomSheetRef.current?.expand({
-                duration: 150,
-                easing: Easing.linear,
-              })
-            }
-            style={styles.changeText}
-          >
-            {t("common.change")}
-          </Text>
-        </View>
+        <Text
+          onPress={() =>
+            bottomSheetRef.current?.expand({
+              duration: 150,
+              easing: Easing.linear,
+            })
+          }
+          style={styles.changeText}
+        >
+          {t("common.change")}
+        </Text>
       </View>
       <View style={[styles.mainContent, { marginBottom: inset.bottom }]}>
         <View style={styles.zodiacContainer}>
@@ -130,15 +130,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  headerButtons: {
-    flexDirection: "row",
-    gap: 16,
-    alignItems: "center",
-  },
   greetingText: {
     fontFamily: FontFamily.Recoleta.SemiBold,
     fontSize: 25,
     color: Colors.white,
+    includeFontPadding: false,
     position: "absolute",
     width: "100%",
     textAlign: "center",
@@ -147,6 +143,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 16,
     color: Colors.white,
+    includeFontPadding: false,
   },
   mainContent: {
     flex: 1,
@@ -167,12 +164,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: Colors.white,
     marginTop: 16,
+    includeFontPadding: false,
   },
   dateText: {
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 18,
     color: Colors.white,
     marginTop: 4,
+    includeFontPadding: false,
   },
   horoscopeContainer: {
     height: ScreenHeight * 0.35,
@@ -186,6 +185,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
     marginTop: 20,
     textAlign: "center",
+    includeFontPadding: false,
   },
   buttonContainer: {
     width: "100%",
@@ -206,13 +206,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  icon: {},
   journalButtonText: {
     fontFamily: FontFamily.Recoleta.SemiBold,
     fontSize: 16,
     letterSpacing: 2,
     color: Colors.white,
     textTransform: "capitalize",
+    includeFontPadding: false,
   },
   bottomSheetBackground: {
     backgroundColor: "transparent",

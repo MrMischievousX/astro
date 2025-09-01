@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
     textAlign: "center",
     marginBottom: 20,
+    includeFontPadding: false,
   },
   languageList: {
     marginBottom: 20,
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 16,
     color: Colors.whiteTransparent,
+    includeFontPadding: false,
   },
   selectedLanguageText: {
     color: Colors.white,
@@ -121,6 +123,7 @@ const styles = StyleSheet.create({
     color: Colors.primaryBackground,
     fontSize: 12,
     fontFamily: FontFamily.Recoleta.Bold,
+    includeFontPadding: false,
   },
   cancelButton: {
     backgroundColor: Colors.buttonBackgroundCancel,
@@ -133,6 +136,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.Recoleta.Medium,
     fontSize: 16,
     color: Colors.white,
+    includeFontPadding: false,
   },
 });
 
