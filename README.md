@@ -239,17 +239,6 @@ We welcome contributions! Please read our contributing guidelines and code of co
 3. Make your changes and test thoroughly
 4. Submit a pull request with a clear description
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Recoleta Font** - Beautiful typography
-- **Expo Team** - Amazing development platform
-- **React Native Community** - Continuous innovation
-- **Astrological Community** - Wisdom and insights
-
 ---
 
 **Built with ❤️ using React Native & Expo**
