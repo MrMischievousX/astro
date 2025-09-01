@@ -1,0 +1,51 @@
+{
+  "common": {
+    "save": "सेव करें",
+    "change": "बदलें",
+    "back": "वापस",
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता"
+  },
+  "home": {
+    "greeting": "नमस्ते निक",
+    "selectYourSign": "अपनी राशि चुनें",
+    "writeJournal": "जर्नल लिखें",
+    "today": "आज"
+  },
+  "journal": {
+    "title": "नया जर्नल",
+    "editTitle": "जर्नल संपादित करें",
+    "placeholder": "यहाँ अपने विचार लिखें...",
+    "saved": "जर्नल सफलतापूर्वक सेव हुआ",
+    "error": "जर्नल सेव करने में विफल"
+  },
+  "history": {
+    "title": "इतिहास",
+    "empty": "कोई जर्नल नहीं मिला",
+    "searchPlaceholder": "जर्नल खोजें..."
+  },
+  "zodiac": {
+    "aries": "मेष",
+    "taurus": "वृषभ",
+    "gemini": "मिथुन",
+    "cancer": "कर्क",
+    "leo": "सिंह",
+    "virgo": "कन्या",
+    "libra": "तुला",
+    "scorpio": "वृश्चिक",
+    "sagittarius": "धनु",
+    "capricorn": "मकर",
+    "aquarius": "कुंभ",
+    "pisces": "मीन"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "selectLanguage": "भाषा चुनें",
+    "english": "English",
+    "hindi": "हिंदी"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "common": {
+    "save": "Save",
+    "change": "Change",
+    "back": "Back",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "home": {
+    "greeting": "Hello Nick",
+    "selectYourSign": "Select Your Sign",
+    "writeJournal": "Write Journal",
+    "today": "Today"
+  },
+  "journal": {
+    "title": "New Journal",
+    "editTitle": "Edit Journal",
+    "placeholder": "Write your thoughts here...",
+    "saved": "Journal saved successfully",
+    "error": "Failed to save journal"
+  },
+  "history": {
+    "title": "History",
+    "empty": "No journals found",
+    "searchPlaceholder": "Search journals..."
+  },
+  "zodiac": {
+    "aries": "Aries",
+    "taurus": "Taurus",
+    "gemini": "Gemini",
+    "cancer": "Cancer",
+    "leo": "Leo",
+    "virgo": "Virgo",
+    "libra": "Libra",
+    "scorpio": "Scorpio",
+    "sagittarius": "Sagittarius",
+    "capricorn": "Capricorn",
+    "aquarius": "Aquarius",
+    "pisces": "Pisces"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "english": "English",
+    "hindi": "हिंदी"
+  }
+}
