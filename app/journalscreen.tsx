@@ -82,7 +82,6 @@ const JournalScreen = ({}) => {
             onChangeText={setInput}
             multiline
             cursorColor={Colors.whiteTransparent}
-            verticalAlign='middle'
             inputMode='text'
             style={styles.textInput}
           />
@@ -140,6 +139,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     padding: 16,
     flexGrow: 1,
+    verticalAlign: "top",
   },
   buttonContainer: {
     flex: 1,

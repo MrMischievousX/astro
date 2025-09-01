@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
   zodiacName: {
     fontFamily: FontFamily.Recoleta.Regular,
     fontSize: 12,
-    lineHeight: 15,
     color: Colors.whiteTransparent,
   },
 });
